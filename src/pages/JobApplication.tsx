@@ -4,6 +4,7 @@ import { Upload, Send, CheckCircle, AlertCircle, ArrowLeft, User, Mail, Phone, F
 import { motion, AnimatePresence } from 'framer-motion';
 import { jobService, type Job, type JobApplication } from '../lib/supabase';
 import { testDatabaseConnection, handleDatabaseError } from '../lib/supabase';
+import FormStatusIndicator from '../components/FormStatusIndicator';
 import SEO from '../components/SEO';
 
 const JobApplicationPage: React.FC = () => {
@@ -378,6 +379,9 @@ const JobApplicationPage: React.FC = () => {
         {/* Application Form */}
         <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl border border-gray-700 p-8">
           <h2 className="text-2xl font-bold text-white mb-6">Apply for this Position</h2>
+          
+          {/* Form Status Indicator */}
+          <FormStatusIndicator formType="job" className="mb-6" />
           
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Personal Information */}

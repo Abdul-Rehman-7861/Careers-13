@@ -5,6 +5,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useFormSubmission } from '../hooks/useFormSubmission';
 import { useDatabase } from '../hooks/useDatabase';
 import LoadingSpinner from '../components/LoadingSpinner';
+import FormStatusIndicator from '../components/FormStatusIndicator';
 import EnhancedFormValidation, { ValidationRules } from '../components/EnhancedFormValidation';
 import SecurityManager from '../utils/security';
 import { contactService, type ContactSubmission } from '../lib/supabase';
@@ -219,6 +220,9 @@ const Contact: React.FC = () => {
                 Fill out the form below and our AI experts will get back to you within 24 hours with a custom solution proposal and project timeline. 
                 <span className="text-blue-300 font-semibold"> You'll also receive an instant confirmation email with next steps.</span>
               </p>
+
+              {/* Form Status Indicator */}
+              <FormStatusIndicator formType="contact" className="mb-6" />
 
               {/* Success Message */}
               <AnimatePresence>

@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle, Zap, Brain, Code, Eye, FileText, TrendingUp, A
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import { projectService, type ProjectSubmission } from '../lib/supabase';
+import FormStatusIndicator from '../components/FormStatusIndicator';
 import { testDatabaseConnection, handleDatabaseError } from '../lib/supabase';
 import SEO from '../components/SEO';
 
@@ -286,6 +287,9 @@ const ProjectBuilder: React.FC = () => {
               <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Progress Bar */}
                 <div className="mb-12">
+                  {/* Form Status Indicator */}
+                  <FormStatusIndicator formType="project" className="mb-6" />
+
                   {/* Success Message */}
                   <AnimatePresence>
                     {isSubmitted && (
